@@ -45,7 +45,7 @@ echo Sorry.
 echo !ESC![33m
 set /p equation=
 set /a ans=%equation%
-echo !ESC![106m
+echo !ESC![96m
 echo %ans%
 call pause
 goto cmain
