@@ -13,15 +13,39 @@ echo   __ \    _` ^|  __^|   __^|  __ \         ^|   _ \    _ \   ^|  ^|  /  ^| 
 echo   ^|   ^|  (   ^|  ^|    (     ^| ^| ^|        ^|  (   ^|  (   ^|  ^|    ^<   ^|  ^|   
 echo  ____/  \__,_^| \__^| \___^| _^| ^|_^|       _^| \___/  \___/  _^| _^|\_\ _^| \__^| !ESC![0m
 echo !ESC![34m-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=!ESC![0m
-:: set color to strong yellow
-echo !ESC![93m
+:: set color to normal yellow
+echo !ESC![33m
 echo [1] Calculator
 echo [2] Pinger
 echo [3] Spec Checker
-:: reset color
-echo !ESC![0m
-choice /c 123 /n /m Tool: 
-if %errorlevel% == 1 echo 1
-if %errorlevel% == 2 echo 2
-if %errorlevel% == 3 echo 3
-pause
+:: set color to strong yellow
+echo !ESC![93m
+set /p choice=Choice: 
+if choice == 1 (
+  goto calculator
+)
+if choice == 2 (
+  goto pinger
+)
+if choice == 3 (
+  goto specChecker
+)
+:calculator
+:cmain
+cls
+echo !ESC![93m
+echo / = Divide
+echo * = Multiply
+echo - = Minus
+echo + = Plus
+echo !ESC![4mDue to limitations of batch, the calculator only outputs integers.!ESC![0m
+echo !ESC![93m
+echo This is due to the fact that "/set a %yourvariablename%=%yourequation%" (the method for maths in batch) only outputs integers.
+echo Sorry.
+echo !ESC![33m
+set /p equation=
+set /a ans=%equation%
+echo !ESC![106m
+echo %ans%
+call pause
+goto cmain
