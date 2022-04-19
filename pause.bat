@@ -1,0 +1,1 @@
+echo !ESC![91mPaused. Press any key to continue.!ESC![0m & pause >nul
