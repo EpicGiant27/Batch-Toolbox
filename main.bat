@@ -20,14 +20,14 @@ echo [2] Pinger
 echo [3] Spec Checker
 :: set color to strong yellow
 echo !ESC![93m
-set /p choice=Choice: 
-if choice == 1 (
+choice /C 123
+if %errorlevel% == 1 (
   goto calculator
 )
-if choice == 2 (
+if %errorlevel% == 2 (
   goto pinger
 )
-if choice == 3 (
+if %errorlevel% == 3 (
   goto specChecker
 )
 :calculator
