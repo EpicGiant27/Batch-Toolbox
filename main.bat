@@ -31,8 +31,18 @@ if %errorlevel% == 3 (
   goto specChecker
 )
 :calculator
-:cmain
 cls
+choice /c 123 /n /m "[1] - Start; [2] - Help; [3] - Go back"
+if %errorlevel% == 1 (
+  goto cmain
+)
+if %errorlevel% == 2 (
+  goto chelp
+)
+if %errorlevel% == 3 (
+  goto mainmenu
+)
+:chelp
 echo !ESC![93m
 echo / = Divide
 echo * = Multiply
@@ -42,10 +52,13 @@ echo !ESC![4mDue to limitations of batch, the calculator only outputs integers.!
 echo !ESC![93m
 echo This is due to the fact that "/set a %yourvariablename%=%yourequation%" (the method for maths in batch) only outputs integers.
 echo Sorry.
+call pause
+goto calculator
+:cmain
 echo !ESC![33m
 set /p equation=
 set /a ans=%equation%
 echo !ESC![96m
 echo %ans%
 call pause
-goto cmain
+goto calculator
