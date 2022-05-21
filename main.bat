@@ -5,7 +5,7 @@ for /F %%a in ('echo prompt $E ^| cmd') do (
 )
 setlocal enabledelayedexpansion
 
-title BatchToolkit
+title Batch ToolKit
 :mainmenu
 echo !ESC![34m-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=!ESC![0m
 echo   !ESC![94m__ )          ^|          ^|         __ __^|              ^|  ^|    _)  ^|   
