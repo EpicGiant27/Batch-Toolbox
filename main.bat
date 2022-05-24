@@ -109,6 +109,6 @@ wmic baseboard get product,Manufacturer.
 echo RAM
 wmic MEMORYCHIP get  DeviceLocator, Capacity, Speed
 echo DRIVES
-wmic diskdrive get model,serialNumber,size,mediaType
+wmic diskdrive get model, serialNumber, size, mediaType
 call pause
 goto specchecker
