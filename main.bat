@@ -103,7 +103,7 @@ echo Size is in bytes.
 echo CPU
 wmic cpu get name, maxclockspeed, currentclockspeed
 echo GPU
-wmic path win32_VideoController get name
+wmic path win32_VideoController get name, adapterram, maxrefreshrate
 echo Motherboard
 wmic baseboard get product,Manufacturer.
 echo RAM
