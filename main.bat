@@ -88,3 +88,27 @@ echo Enter the IP address you want to ping.
 echo Enter how many times you want to ping the ip.
 call pause
 goto pinger
+:specchecker
+cls
+echo !ESC![93m
+choice /c 123 /n /m "[1] - Start; [2] - Go back
+if %errorlevel% == 1 (
+  goto smain
+)
+if %errorlevel% == 2 (
+  goto mainmenu
+:smain
+echo !ESC![96m
+echo Size is in bytes.
+echo CPU
+wmic cpu get name, maxclockspeed, currentclockspeed
+echo GPU
+wmic path win32_VideoController get name
+echo Motherboard
+wmic baseboard get product,Manufacturer.
+echo RAM
+wmic MEMORYCHIP get  DeviceLocator, Capacity, Speed
+echo DRIVES
+wmic diskdrive get model,serialNumber,size,mediaType
+call pause
+goto specchecker
