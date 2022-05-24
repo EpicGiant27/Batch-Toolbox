@@ -63,3 +63,28 @@ echo !ESC![96m
 echo %ans%
 call pause
 goto calculator
+:pinger
+cls
+echo !ESC![93m
+choice /c 123 /n /m "[1] - Start; [2] - Help; [3] - Go back"
+if %errorlevel% == 1 (
+  goto pmain
+)
+if %errorlevel% == 2 (
+  goto phelp
+)
+if %errorlevel% == 3 (
+  goto mainmenu
+)
+:pmain
+set /p ip=
+set /p count=
+:pping
+ping %ip% -n %count%
+call pause
+goto pinger
+:phelp
+echo Enter the IP address you want to ping.
+echo Enter how many times you want to ping the ip.
+call pause
+goto pinger
