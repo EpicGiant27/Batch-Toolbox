@@ -32,6 +32,7 @@ if %errorlevel% == 3 (
 )
 :calculator
 cls
+echo !ESC![93m
 choice /c 123 /n /m "[1] - Start; [2] - Help; [3] - Go back"
 if %errorlevel% == 1 (
   goto cmain
