@@ -7,6 +7,7 @@ setlocal enabledelayedexpansion
 
 title Batch ToolKit
 :mainmenu
+cls
 echo !ESC![34m-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=!ESC![0m
 echo   !ESC![94m__ )          ^|          ^|         __ __^|              ^|  ^|    _)  ^|   
 echo   __ \    _` ^|  __^|   __^|  __ \         ^|   _ \    _ \   ^|  ^|  /  ^|  __^| 
