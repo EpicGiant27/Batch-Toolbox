@@ -19,9 +19,10 @@ echo !ESC![33m
 echo [1] Calculator
 echo [2] Pinger
 echo [3] Spec Checker
+echo [4] Serial Checker
 :: set color to strong yellow
 echo !ESC![93m
-choice /C 123
+choice /C 1234
 if %errorlevel% == 1 (
   goto calculator
 )
@@ -30,6 +31,9 @@ if %errorlevel% == 2 (
 )
 if %errorlevel% == 3 (
   goto specChecker
+)
+if %errorlevel% == 4 (
+  goto hwidChecker
 )
 :calculator
 cls
@@ -92,7 +96,7 @@ goto pinger
 :specchecker
 cls
 echo !ESC![93m
-choice /c 123 /n /m "[1] - Start; [2] - Go back
+choice /c 12 /n /m "[1] - Start; [2] - Go back
 if %errorlevel% == 1 (
   goto smain
 )
@@ -113,3 +117,18 @@ echo DRIVES
 wmic diskdrive get model, serialNumber, size, mediaType
 call pause
 goto specchecker
+:hwidChecker
+cls
+echo !ESC![93m
+choice /c 12 /n /m "[1] - Drive Serial; [2] - Go back
+if %errorlevel% == 1 (
+  goto hdrive
+)
+if %errorlevel% == 2 (
+  goto mainmenu
+)
+:hdrive
+set /p letter = Drive you want to check: 
+vol %letter%
+call pause
+goto hwidChecker
