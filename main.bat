@@ -1,9 +1,11 @@
 @ECHO OFF
+:: colour codes
 setlocal EnableExtensions DisableDelayedExpansion
 for /F %%a in ('echo prompt $E ^| cmd') do (
   set "ESC=%%a"
 )
 setlocal enabledelayedexpansion
+:: end of colour codes
 
 title Batch ToolKit
 :mainmenu
@@ -20,9 +22,10 @@ echo [1] Calculator
 echo [2] Pinger
 echo [3] Spec Checker
 echo [4] Serial Checker
+echo [5] Temp Cleaner
 :: set color to strong yellow
 echo !ESC![93m
-choice /C 1234
+choice /c 12345 /n
 if %errorlevel% == 1 (
   goto calculator
 )
@@ -35,10 +38,13 @@ if %errorlevel% == 3 (
 if %errorlevel% == 4 (
   goto hwidChecker
 )
+if %errorlevel% == 5 (
+  goto tempCleaner
+)
 :calculator
 cls
 echo !ESC![93m
-choice /c 123 /n /m "[1] - Start; [2] - Help; [3] - Go back"
+choice /c 120 /n /m "[1] - Start; [2] - Help; [0] - Go Back"
 if %errorlevel% == 1 (
   goto cmain
 )
@@ -71,7 +77,7 @@ goto calculator
 :pinger
 cls
 echo !ESC![93m
-choice /c 123 /n /m "[1] - Start; [2] - Help; [3] - Go back"
+choice /c 120 /n /m "[1] - Start; [2] - Help; [0] - Go Back"
 if %errorlevel% == 1 (
   goto pmain
 )
@@ -96,7 +102,7 @@ goto pinger
 :specchecker
 cls
 echo !ESC![93m
-choice /c 12 /n /m "[1] - Start; [2] - Go back
+choice /c 10 /n /m "[1] - Start; [0] - Go Back
 if %errorlevel% == 1 (
   goto smain
 )
@@ -120,7 +126,7 @@ goto specchecker
 :hwidChecker
 cls
 echo !ESC![93m
-choice /c 12 /n /m "[1] - Drive Serial; [2] - Go back
+choice /c 10 /n /m "[1] - Drive Serial; [0] - Go Back
 if %errorlevel% == 1 (
   goto hdrive
 )
@@ -128,7 +134,74 @@ if %errorlevel% == 2 (
   goto mainmenu
 )
 :hdrive
+echo !ESC![96m
 set /p letter = Drive you want to check: 
 vol %letter%
 call pause
 goto hwidChecker
+:tempCleaner
+echo !ESC![93m
+choice /c 1230 /n /m "[1] - Clear Temp Folders; [2] - Clear Temp Folders and Recycle Bin; [3] - Help; [0] - Go Back"
+if %errorlevel% == 1 (
+  goto tTempFolders
+)
+if %errorlevel% == 2 (
+  goto tTempFoldersAndRecycleBin
+)
+if %errorlevel% == 3 (
+  goto tHelp
+)
+if %errorlevel% == 4 (
+  goto mainmenu
+)
+:tTempFolders
+cls
+echo !ESC![96m
+echo Are you sure you want to delete all of the files in the following directories:
+echo C:\Users\%username%\AppData\Local\Temp
+echo C:\Users\%username%\AppData\Local\Tmp
+echo C:\Windows\Temp
+echo C:\Temp
+choice /n /t 10 /d n
+if %errorlevel% == 1 (
+  goto tTempFoldersDel
+)
+if %errorlevel% == 2 (
+  goto tempCleaner
+)
+:tTempFoldersDel
+del /S /q C:\Users\%username%\AppData\Local\Temp\*.*
+del /S /q C:\Users\%username%\AppData\Local\Tmp\*.*
+del /S /q c:\Windows\temp\*.*
+del /S /q c:\Temp\*.*
+call pause
+goto tempCleaner
+:tTempFoldersAndRecycleBin
+echo !ESC![96m
+echo Are you sure you want to delete all of the files in the following directories:
+echo C:\Users\%username%\AppData\Local\Temp
+echo C:\Users\%username%\AppData\Local\Tmp
+echo C:\$Recycle.Bin
+echo C:\Windows\Temp
+echo C:\Temp
+choice /n /t 10 /d n
+if %errorlevel% == 1 (
+  goto tTempFoldersAndRecycleBinDel
+)
+if %errorlevel% == 2 (
+  goto tempCleaner
+)
+:tTempFoldersAndRecycleBinDel
+del /S /q C:\Users\%username%\AppData\Local\Temp\*.*
+del /S /q C:\Users\%username%\AppData\Local\Tmp\*.*
+del /S /q c:\$Recycle.Bin\*.*
+del /S /q c:\Windows\temp\*.*
+del /S /q c:\Temp\*.*
+call pause
+goto tempCleaner
+:tHelp
+echo !ESC![96m
+echo About
+echo This tool clears all of the files in listed directories.
+call pause
+goto tempCleaner
