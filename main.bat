@@ -140,6 +140,7 @@ vol %letter%
 call pause
 goto hwidChecker
 :tempCleaner
+cls
 echo !ESC![93m
 choice /c 1230 /n /m "[1] - Clear Temp Folders; [2] - Clear Temp Folders and Recycle Bin; [3] - Help; [0] - Go Back"
 if %errorlevel% == 1 (
