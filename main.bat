@@ -123,6 +123,19 @@ echo DRIVES
 wmic diskdrive get model, size, mediaType
 call pause
 goto specchecker
+:sdump
+echo !ESC![96m> specs.txt
+echo Size is in bytes.> specs.txt
+echo CPU> specs.txt
+wmic cpu get name, maxclockspeed, currentclockspeed> specs.txt
+echo GPU> specs.txt
+wmic path win32_VideoController get name, adapterram, maxrefreshrate> specs.txt
+echo Motherboard> specs.txt
+wmic baseboard get product,Manufacturer.> specs.txt
+echo RAM> specs.txt
+wmic MEMORYCHIP get  DeviceLocator, Capacity, Speed> specs.txt
+echo DRIVES> specs.txt
+wmic diskdrive get model, size, mediaType> specs.txt
 :hwidChecker
 cls
 echo !ESC![93m
