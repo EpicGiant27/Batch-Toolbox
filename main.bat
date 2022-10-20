@@ -6,8 +6,6 @@ for /F %%a in ('echo prompt $E ^| cmd') do (
 )
 setlocal enabledelayedexpansion
 :: end of colour codes
-
-title Batch ToolKit
 :mainmenu
 cls
 echo !ESC![34m-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=!ESC![0m
