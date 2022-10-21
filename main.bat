@@ -6,8 +6,10 @@ for /F %%a in ('echo prompt $E ^| cmd') do (
 )
 setlocal enabledelayedexpansion
 :: end of colour codes
+goto mainmenu
 :mainmenu
 cls
+title Main Menu; Batch Toolbox
 echo !ESC![34m-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=!ESC![0m
 echo   !ESC![94m__ )          ^|          ^|         __ __^|              ^|  ^|    _)  ^|   
 echo   __ \    _` ^|  __^|   __^|  __ \         ^|   _ \    _ \   ^|  ^|  /  ^|  __^| 
@@ -41,6 +43,7 @@ if %errorlevel% == 5 (
 )
 :calculator
 cls
+title Calculator; Batch Toolbox
 echo !ESC![93m
 choice /c 120 /n /m "[1] - Start; [2] - Help; [0] - Go Back"
 if %errorlevel% == 1 (
@@ -65,8 +68,9 @@ echo Sorry.
 call pause
 goto calculator
 :cmain
+cls
 echo !ESC![33m
-set /p equation=
+set /p equation=Your equation: 
 set /a ans=%equation%
 echo !ESC![96m
 echo %ans%
@@ -74,6 +78,7 @@ call pause
 goto calculator
 :pinger
 cls
+title Pinger; Batch Toolbox
 echo !ESC![93m
 choice /c 120 /n /m "[1] - Start; [2] - Help; [0] - Go Back"
 if %errorlevel% == 1 (
@@ -99,6 +104,7 @@ call pause
 goto pinger
 :specchecker
 cls
+title Spec Checker; Batch Toolbox
 echo !ESC![93m
 choice /c 10 /n /m "[1] - Start; [0] - Go Back
 if %errorlevel% == 1 (
@@ -124,6 +130,7 @@ call pause
 goto specchecker
 :hwidChecker
 cls
+title Serial Checker; Batch Toolbox
 echo !ESC![93m
 choice /c 10 /n /m "[1] - Drive Serial; [0] - Go Back
 if %errorlevel% == 1 (
@@ -140,6 +147,7 @@ call pause
 goto hwidChecker
 :tempCleaner
 cls
+title Temp Cleaner; Batch Toolbox
 echo !ESC![93m
 choice /c 1230 /n /m "[1] - Clear Temp Folders; [2] - Clear Temp Folders and Recycle Bin; [3] - Help; [0] - Go Back"
 if %errorlevel% == 1 (
