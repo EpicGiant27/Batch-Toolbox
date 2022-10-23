@@ -86,16 +86,16 @@ if %errorlevel% == 2 (
 if %errorlevel% == 3 (
   goto mainmenu
 )
+:phelp
+echo Enter the IP address you want to ping.
+echo Enter how many times you want to ping the ip.
+call pause
+goto pinger
 :pmain
 set /p ip=
 set /p count=
 :pping
 ping %ip% -n %count%
-call pause
-goto pinger
-:phelp
-echo Enter the IP address you want to ping.
-echo Enter how many times you want to ping the ip.
 call pause
 goto pinger
 :specchecker
