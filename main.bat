@@ -61,9 +61,6 @@ echo * = Multiply
 echo - = Minus
 echo + = Plus
 echo !ESC![4mDue to limitations of batch, the calculator only outputs integers.!ESC![0m
-echo !ESC![93m
-echo This is due to the fact that "/set a %yourvariablename%=%yourequation%" (the method for maths in batch) only outputs integers.
-echo Sorry.
 call pause
 goto calculator
 :cmain
