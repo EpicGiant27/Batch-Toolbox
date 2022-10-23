@@ -6,7 +6,6 @@ for /F %%a in ('echo prompt $E ^| cmd') do (
 )
 setlocal enabledelayedexpansion
 :: end of colour codes
-goto mainmenu
 :mainmenu
 cls
 title Main Menu; Batch Toolbox
