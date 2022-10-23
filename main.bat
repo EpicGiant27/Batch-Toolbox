@@ -7,6 +7,7 @@ for /F %%a in ('echo prompt $E ^| cmd') do (
 setlocal enabledelayedexpansion
 :: end of colour codes
 :mainmenu
+mode con:cols=120 lines=30
 cls
 title Main Menu; Batch Toolbox
 echo !ESC![34m-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
@@ -22,9 +23,10 @@ echo [2] Pinger
 echo [3] Spec Checker
 echo [4] Serial Checker
 echo [5] Temp Cleaner
+echo [6] Clock
 :: set color to strong yellow
 echo !ESC![93m
-choice /c 12345 /n
+choice /c 123456 /n
 if %errorlevel% == 1 (
   goto calculator
 )
@@ -39,6 +41,9 @@ if %errorlevel% == 4 (
 )
 if %errorlevel% == 5 (
   goto tempCleaner
+)
+if %errorlevel% == 6 (
+  goto clockInit
 )
 :calculator
 cls
@@ -209,3 +214,31 @@ del /S /q c:\Windows\temp\*.*
 del /S /q c:\Temp\*.*
 call pause
 goto tempCleaner
+:clockInit
+cls
+title Clock; Batch Toolbox
+mode con:cols=24 lines=16
+:clock
+echo !ESC![96m
+echo          .--.
+echo     .-._;.--.;_.-.
+echo    (^_.'^_..--..^_'.^_)
+echo     ^/.' . 60 . '.^\
+echo    ^/^/ .      ^/ . ^\^\
+echo   ^|; .      ^/   . ^|;
+echo   ^|^|45    ()    15^|^|
+echo   ^|; .          . ^|;
+echo    ^\^\ .        . ^/^/
+echo     ^\'.^_' 30 '^_.'^/
+echo jgs  '-.^_'--'^_.-'
+echo         `""` 
+echo %date% ^| %time%
+echo [0]; Main Menu
+echo !ESC![30m
+choice /c 01 /n /t 1 /d 1
+if %errorlevel% == 1 (
+  goto mainmenu
+)
+if %errorlevel% == 2 (
+  goto clock
+)
