@@ -158,6 +158,12 @@ if %errorlevel% == 3 (
 if %errorlevel% == 4 (
   goto mainmenu
 )
+:tHelp
+echo !ESC![96m
+echo About
+echo This tool clears all of the files in listed directories.
+call pause
+goto tempCleaner
 :tTempFolders
 cls
 echo !ESC![96m
@@ -201,11 +207,5 @@ del /S /q C:\Users\%username%\AppData\Local\Tmp\*.*
 del /S /q c:\$Recycle.Bin\*.*
 del /S /q c:\Windows\temp\*.*
 del /S /q c:\Temp\*.*
-call pause
-goto tempCleaner
-:tHelp
-echo !ESC![96m
-echo About
-echo This tool clears all of the files in listed directories.
 call pause
 goto tempCleaner
