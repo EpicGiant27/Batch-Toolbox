@@ -1,4 +1,4 @@
-@ECHO OFF
+@echo off
 :: colour codes
 setlocal EnableExtensions DisableDelayedExpansion
 for /F %%a in ('echo prompt $E ^| cmd') do (
