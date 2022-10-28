@@ -1,4 +1,5 @@
 @echo off
+chcp 65001
 :: colour codes
 setlocal EnableExtensions DisableDelayedExpansion
 for /F %%a in ('echo prompt $E ^| cmd') do (
@@ -10,23 +11,24 @@ setlocal enabledelayedexpansion
 mode con:cols=120 lines=30
 cls
 title Main Menu; Batch Toolbox
-echo !ESC![34m-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+echo !ESC![34m▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
 echo   !ESC![94m__ )          ^|          ^|         __ __^|              ^|  ^|    _)  ^|   
 echo   __ \    _` ^|  __^|   __^|  __ \         ^|   _ \    _ \   ^|  ^|  /  ^|  __^| 
 echo   ^|   ^|  (   ^|  ^|    (     ^| ^| ^|        ^|  (   ^|  (   ^|  ^|    ^<   ^|  ^|   
 echo  ____/  \__,_^| \__^| \___^| _^| ^|_^|       _^| \___/  \___/  _^| _^|\_\ _^| \__^|
-echo !ESC![34m-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+echo !ESC![34m▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
 :: set color to normal yellow
 echo !ESC![33m
-echo [1] Calculator
-echo [2] Pinger
-echo [3] Spec Checker
-echo [4] Serial Checker
-echo [5] Temp Cleaner
-echo [6] Clock
+echo [1] Clear Temp Files
+echo [A] Calculator
+echo [B] Pinger
+echo [C] Spec Checker
+echo [D] Serial Checker
+echo [E] Temp Cleaner
+echo [F] Clock
 :: set color to strong yellow
 echo !ESC![93m
-choice /c 123456 /n
+choice /c abcdef1 /n
 if %errorlevel% == 1 (
   goto calculator
 )
@@ -44,6 +46,9 @@ if %errorlevel% == 5 (
 )
 if %errorlevel% == 6 (
   goto clockInit
+)
+if %errorlevel% == 7 (
+  goto shortTempClean
 )
 :calculator
 cls
@@ -242,3 +247,18 @@ if %errorlevel% == 1 (
 if %errorlevel% == 2 (
   goto clock
 )
+:shortTempClean
+choice /n /t 10 /d n /m "Do you want to clear all temp folders? [Y/N]]"
+if %errorlevel% == 1 (
+  goto shortClear
+)
+if %errorlevel% == 2 (
+  goto mainmenu
+)
+:shortClear
+del /S /q C:\Users\%username%\AppData\Local\Temp\*.*
+del /S /q C:\Users\%username%\AppData\Local\Tmp\*.*
+del /S /q c:\Windows\temp\*.*
+del /S /q c:\Temp\*.*
+call pause
+goto mainmenu
