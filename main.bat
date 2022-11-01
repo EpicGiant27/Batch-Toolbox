@@ -11,24 +11,24 @@ setlocal enabledelayedexpansion
 mode con:cols=120 lines=30
 cls
 title Main Menu; Batch Toolbox
-echo !ESC![34m▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
-echo   !ESC![94▄▄▄▄·  ▄▄▄· ▄▄▄▄▄ ▄▄·  ▄ .▄    ▄▄▄▄▄            ▄▄▌  ▄▄▄▄·       ▐▄• ▄ 
+echo !esc![34m▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
+echo   !esc![94▄▄▄▄·  ▄▄▄· ▄▄▄▄▄ ▄▄·  ▄ .▄    ▄▄▄▄▄            ▄▄▌  ▄▄▄▄·       ▐▄• ▄ 
 echo ▐█ ▀█▪▐█ ▀█ •██  ▐█ ▌▪██▪▐█    •██  ▪     ▪     ██•  ▐█ ▀█▪▪      █▌█▌▪
 echo ▐█▀▀█▄▄█▀▀█  ▐█.▪██ ▄▄██▀▐█     ▐█.▪ ▄█▀▄  ▄█▀▄ ██▪  ▐█▀▀█▄ ▄█▀▄  ·██· 
 echo ██▄▪▐█▐█ ▪▐▌ ▐█▌·▐███▌██▌▐▀     ▐█▌·▐█▌.▐▌▐█▌.▐▌▐█▌▐▌██▄▪▐█▐█▌.▐▌▪▐█·█▌
 echo ·▀▀▀▀  ▀  ▀  ▀▀▀ ·▀▀▀ ▀▀▀ ·     ▀▀▀  ▀█▄▀▪ ▀█▄▀▪.▀▀▀ ·▀▀▀▀  ▀█▄▀▪•▀▀ ▀▀
-echo !ESC![34m▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
+echo !esc![34m▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
 :: set color to normal yellow
-echo !ESC![33m
-echo !esc![91m[0]; Exit          !ESC![95m[1] Clear Temp Files
-echo !ESC![33m[A] Calculator
+echo !esc![33m
+echo !esc![91m[0]; Exit          !esc![95m[1] Clear Temp Files
+echo !esc![33m[A] Calculator
 echo [B] Pinger
 echo [C] Spec Checker
 echo [D] Serial Checker
 echo [E] Temp Cleaner
 echo [F] Clock
 :: set color to strong yellow
-echo !ESC![93m
+echo !esc![93m
 choice /c abcdef10 /n
 if %errorlevel% == 1 (
   goto calculator
@@ -57,7 +57,7 @@ if %errorlevel% == 8 (
 :calculator
 cls
 title Calculator; Batch Toolbox
-echo !ESC![93m
+echo !esc![93m
 choice /c 120 /n /m "[1] - Start; [2] - Help; [0] - Go Back"
 if %errorlevel% == 1 (
   goto cmain
@@ -69,27 +69,27 @@ if %errorlevel% == 3 (
   goto mainmenu
 )
 :chelp
-echo !ESC![93m
+echo !esc![93m
 echo / = Divide
 echo * = Multiply
 echo - = Minus
 echo + = Plus
-echo !ESC![4mDue to limitations of batch, the calculator only outputs integers.!ESC![0m
+echo !esc![4mDue to limitations of batch, the calculator only outputs integers.!esc![0m
 call pause
 goto calculator
 :cmain
 cls
-echo !ESC![33m
+echo !esc![33m
 set /p equation=Your equation: 
 set /a ans=%equation%
-echo !ESC![96m
+echo !esc![96m
 echo %ans%
 call pause
 goto calculator
 :pinger
 cls
 title Pinger; Batch Toolbox
-echo !ESC![93m
+echo !esc![93m
 choice /c 120 /n /m "[1] - Start; [2] - Help; [0] - Go Back"
 if %errorlevel% == 1 (
   goto pmain
@@ -116,7 +116,7 @@ goto pinger
 :specchecker
 cls
 title Spec Checker; Batch Toolbox
-echo !ESC![93m
+echo !esc![93m
 choice /c 10 /n /m "[1] - Start; [0] - Go Back
 if %errorlevel% == 1 (
   goto smain
@@ -125,7 +125,7 @@ if %errorlevel% == 2 (
   goto mainmenu
 )
 :smain
-echo !ESC![96m
+echo !esc![96m
 echo Size is in bytes.
 echo CPU
 wmic cpu get name, maxclockspeed, currentclockspeed
@@ -142,7 +142,7 @@ goto specchecker
 :hwidChecker
 cls
 title Serial Checker; Batch Toolbox
-echo !ESC![93m
+echo !esc![93m
 choice /c 10 /n /m "[1] - Drive Serial; [0] - Go Back
 if %errorlevel% == 1 (
   goto hdrive
@@ -151,7 +151,7 @@ if %errorlevel% == 2 (
   goto mainmenu
 )
 :hdrive
-echo !ESC![96m
+echo !esc![96m
 set /p letter = Drive you want to check: 
 vol %letter%
 call pause
@@ -159,7 +159,7 @@ goto hwidChecker
 :tempCleaner
 cls
 title Temp Cleaner; Batch Toolbox
-echo !ESC![93m
+echo !esc![93m
 choice /c 1230 /n /m "[1] - Clear Temp Folders; [2] - Clear Temp Folders and Recycle Bin; [3] - Help; [0] - Go Back"
 if %errorlevel% == 1 (
   goto tTempFolders
@@ -174,14 +174,14 @@ if %errorlevel% == 4 (
   goto mainmenu
 )
 :tHelp
-echo !ESC![96m
+echo !esc![96m
 echo About
 echo This tool clears all of the files in listed directories.
 call pause
 goto tempCleaner
 :tTempFolders
 cls
-echo !ESC![96m
+echo !esc![96m
 echo Are you sure you want to delete all of the files in the following directories:
 echo C:\Users\%username%\AppData\Local\Temp
 echo C:\Users\%username%\AppData\Local\Tmp
@@ -202,7 +202,7 @@ del /S /q c:\Temp\*.*
 call pause
 goto tempCleaner
 :tTempFoldersAndRecycleBin
-echo !ESC![96m
+echo !esc![96m
 echo Are you sure you want to delete all of the files in the following directories:
 echo C:\Users\%username%\AppData\Local\Temp
 echo C:\Users\%username%\AppData\Local\Tmp
@@ -229,7 +229,7 @@ cls
 title Clock; Batch Toolbox
 mode con:cols=24 lines=16
 :clock
-echo !ESC![96m
+echo !esc![96m
 echo          .--.
 echo     .-._;.--.;_.-.
 echo    (^_.'^_..--..^_'.^_)
@@ -244,7 +244,7 @@ echo jgs  '-.^_'--'^_.-'
 echo         `""` 
 echo %date% ^| %time%
 echo [0]; Main Menu
-echo !ESC![30m
+echo !esc![30m
 choice /c 01 /n /t 1 /d 1
 if %errorlevel% == 1 (
   goto mainmenu
