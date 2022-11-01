@@ -19,7 +19,6 @@ echo ██▄▪▐█▐█ ▪▐▌ ▐█▌·▐███▌██▌▐�
 echo ·▀▀▀▀  ▀  ▀  ▀▀▀ ·▀▀▀ ▀▀▀ ·     ▀▀▀  ▀█▄▀▪ ▀█▄▀▪.▀▀▀ ·▀▀▀▀  ▀█▄▀▪•▀▀ ▀▀
 echo !esc![34m▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
 :: set color to normal yellow
-echo !esc![33m
 echo !esc![91m[0] Exit          !esc![95m[1] Clear Temp Files
 echo !esc![33m[A] Calculator
 echo [B] Pinger
