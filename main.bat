@@ -102,10 +102,11 @@ echo Enter how many times you want to ping the ip.
 call pause
 goto pinger
 :pmain
-set /p ip=
-set /p count=
+cls
+set /p ip=IP:
+set /p amount=How many times to ping: 
 :pping
-ping %ip% -n %count%
+ping %ip% -n %amount%
 call pause
 goto pinger
 :specchecker
