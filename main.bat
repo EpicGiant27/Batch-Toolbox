@@ -20,15 +20,16 @@ echo ·▀▀▀▀  ▀  ▀  ▀▀▀ ·▀▀▀ ▀▀▀ ·     ▀▀▀ 
 echo !ESC![34m▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
 :: set color to normal yellow
 echo !ESC![33m
-echo [A] Calculator          !ESC![95m[1] Clear Temp Files
-echo !ESC![33m[B] Pinger
+echo !esc![91m[0]; Exit          !ESC![95m[1] Clear Temp Files
+echo !ESC![33m[A] Calculator
+echo [B] Pinger
 echo [C] Spec Checker
 echo [D] Serial Checker
 echo [E] Temp Cleaner
 echo [F] Clock
 :: set color to strong yellow
 echo !ESC![93m
-choice /c abcdef1 /n
+choice /c abcdef10 /n
 if %errorlevel% == 1 (
   goto calculator
 )
@@ -49,6 +50,9 @@ if %errorlevel% == 6 (
 )
 if %errorlevel% == 7 (
   goto shortTempClean
+)
+if %errorlevel% == 8 (
+  exit
 )
 :calculator
 cls
