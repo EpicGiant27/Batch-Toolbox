@@ -87,9 +87,9 @@ echo %ans%
 call pause
 goto calculator
 :pinger
+echo !esc![93m
 cls
 title Pinger; Batch Toolbox
-echo !esc![93m
 choice /c 120 /n /m "[1] - Start; [2] - Help; [0] - Go Back"
 if %errorlevel% == 1 (
   goto pmain
