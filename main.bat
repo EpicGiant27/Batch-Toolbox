@@ -114,9 +114,9 @@ ping %ip% -n %amount%
 call pause
 goto pinger
 :specchecker
+echo !esc![93m
 cls
 title Spec Checker; Batch Toolbox
-echo !esc![93m
 choice /c 10 /n /m "[1] - Start; [0] - Go Back
 if %errorlevel% == 1 (
   goto smain
@@ -140,9 +140,9 @@ wmic diskdrive get model, size, mediaType
 call pause
 goto specchecker
 :hwidChecker
+echo !esc![93m
 cls
 title Serial Checker; Batch Toolbox
-echo !esc![93m
 choice /c 10 /n /m "[1] - Drive Serial; [0] - Go Back
 if %errorlevel% == 1 (
   goto hdrive
@@ -157,9 +157,9 @@ vol %letter%
 call pause
 goto hwidChecker
 :tempCleaner
+echo !esc![93m
 cls
 title Temp Cleaner; Batch Toolbox
-echo !esc![93m
 choice /c 1230 /n /m "[1] - Clear Temp Folders; [2] - Clear Temp Folders and Recycle Bin; [3] - Help; [0] - Go Back"
 if %errorlevel% == 1 (
   goto tTempFolders
@@ -225,11 +225,11 @@ del /S /q c:\Temp\*.*
 call pause
 goto tempCleaner
 :clockInit
+echo !esc![96m
 cls
 title Clock; Batch Toolbox
 mode con:cols=24 lines=16
 :clock
-echo !esc![96m
 echo          .--.
 echo     .-._;.--.;_.-.
 echo    (^_.'^_..--..^_'.^_)
