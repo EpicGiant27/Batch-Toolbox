@@ -55,9 +55,9 @@ if %errorlevel% == 8 (
   exit
 )
 :calculator
+echo !esc![93m
 cls
 title Calculator; Batch Toolbox
-echo !esc![93m
 choice /c 120 /n /m "[1] - Start; [2] - Help; [0] - Go Back"
 if %errorlevel% == 1 (
   goto cmain
