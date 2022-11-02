@@ -252,7 +252,7 @@ if %errorlevel% == 2 (
   goto clock
 )
 :shortTempClean
-choice /n /t 10 /d n /m "Do you want to clear all temp folders? [Y/N]]"
+choice /n /t 10 /d n /m "Do you want to clear all temp folders? [Y/N]"
 if %errorlevel% == 1 (
   goto shortClear
 )
@@ -266,3 +266,4 @@ del /S /q c:\Windows\temp\*.*
 del /S /q c:\Temp\*.*
 call pause
 goto mainmenu
+:timeStampGen
